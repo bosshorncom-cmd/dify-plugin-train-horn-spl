@@ -1,0 +1,21 @@
+identity:
+  author: bosshorncom-cmd
+  name: train_horn_spl
+  label:
+    en_US: Train Horn SPL Calculator
+    zh_Hans: Train Horn SPL Calculator
+    pt_BR: Train Horn SPL Calculator
+    ja_JP: Train Horn SPL Calculator
+  description:
+    en_US: Predict train horn sound pressure level (SPL) at a target distance from a reference measurement, using inverse-square spreading plus optional linear atmospheric absorption. This is a free-field estimate.
+    zh_Hans: Predict train horn sound pressure level (SPL) at a target distance from a reference measurement, using inverse-square spreading plus optional linear atmospheric absorption. This is a free-field estimate.
+    pt_BR: Predict train horn sound pressure level (SPL) at a target distance from a reference measurement, using inverse-square spreading plus optional linear atmospheric absorption. This is a free-field estimate.
+    ja_JP: Predict train horn sound pressure level (SPL) at a target distance from a reference measurement, using inverse-square spreading plus optional linear atmospheric absorption. This is a free-field estimate.
+  icon: icon.svg
+  tags:
+    - utilities
+tools:
+  - tools/train_horn_spl.yaml
+extra:
+  python:
+    source: provider/train_horn_spl.py

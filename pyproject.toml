@@ -1,0 +1,9 @@
+[project]
+name = "train_horn_spl"
+version = "0.1.0"
+description = "Predict train horn sound pressure level (SPL) versus distance as a free-field estimate."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dify-plugin>=0.9.0,<0.10.0",
+]

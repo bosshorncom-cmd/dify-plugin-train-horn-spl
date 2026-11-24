@@ -1,0 +1,39 @@
+version: 0.1.0
+type: plugin
+author: bosshorncom-cmd
+name: train_horn_spl
+label:
+  en_US: Train Horn SPL Calculator
+  ja_JP: Train Horn SPL Calculator
+  zh_Hans: Train Horn SPL Calculator
+  pt_BR: Train Horn SPL Calculator
+description:
+  en_US: Predict train horn sound pressure level (SPL) at a target distance from a reference measurement, using inverse-square spreading plus optional linear atmospheric absorption. This is a free-field estimate.
+  ja_JP: Predict train horn sound pressure level (SPL) at a target distance from a reference measurement, using inverse-square spreading plus optional linear atmospheric absorption. This is a free-field estimate.
+  zh_Hans: Predict train horn sound pressure level (SPL) at a target distance from a reference measurement, using inverse-square spreading plus optional linear atmospheric absorption. This is a free-field estimate.
+  pt_BR: Predict train horn sound pressure level (SPL) at a target distance from a reference measurement, using inverse-square spreading plus optional linear atmospheric absorption. This is a free-field estimate.
+icon: icon.svg
+icon_dark: icon-dark.svg
+resource:
+  memory: 67108864
+  permission: {}
+plugins:
+  tools:
+    - provider/train_horn_spl.yaml
+meta:
+  version: 0.1.0
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2026-11-23T16:48:55.992317647-08:00
+privacy: PRIVACY.md
+verified: false
+tags:
+  - utilities
+repo: https://github.com/bosshorncom-cmd/dify-plugin-train-horn-spl
+contact: info@hornguns.com

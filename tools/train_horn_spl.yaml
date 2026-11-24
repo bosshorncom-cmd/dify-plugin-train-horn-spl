@@ -1,0 +1,80 @@
+identity:
+  name: train_horn_spl
+  author: bosshorncom-cmd
+  label:
+    en_US: Predict Train Horn SPL
+    zh_Hans: Predict Train Horn SPL
+    pt_BR: Predict Train Horn SPL
+    ja_JP: Predict Train Horn SPL
+description:
+  human:
+    en_US: Predict the sound pressure level of a train horn at a target distance from a reference SPL and distance, using inverse-square spreading and an optional linear atmospheric absorption term. The result is a free-field estimate.
+    zh_Hans: Predict the sound pressure level of a train horn at a target distance from a reference SPL and distance, using inverse-square spreading and an optional linear atmospheric absorption term. The result is a free-field estimate.
+    pt_BR: Predict the sound pressure level of a train horn at a target distance from a reference SPL and distance, using inverse-square spreading and an optional linear atmospheric absorption term. The result is a free-field estimate.
+    ja_JP: Predict the sound pressure level of a train horn at a target distance from a reference SPL and distance, using inverse-square spreading and an optional linear atmospheric absorption term. The result is a free-field estimate.
+  llm: Predict a train horn sound pressure level (SPL) in dB at a target distance. Required inputs are reference_spl_db, reference_distance_m, and target_distance_m. Optional attenuation_db_per_km is a user-supplied linear atmospheric or ground absorption coefficient in dB per kilometre (default 0). Returns a free-field estimate using L2 = L1 - 20*log10(r2/r1) - alpha*(r2-r1)/1000, with distances in metres.
+parameters:
+  - name: reference_spl_db
+    type: number
+    required: true
+    label:
+      en_US: Reference SPL (dB)
+      zh_Hans: Reference SPL (dB)
+      pt_BR: Reference SPL (dB)
+      ja_JP: Reference SPL (dB)
+    human_description:
+      en_US: Measured or assumed sound pressure level of the train horn at the reference distance, in decibels.
+      zh_Hans: Measured or assumed sound pressure level of the train horn at the reference distance, in decibels.
+      pt_BR: Measured or assumed sound pressure level of the train horn at the reference distance, in decibels.
+      ja_JP: Measured or assumed sound pressure level of the train horn at the reference distance, in decibels.
+    llm_description: Sound pressure level in dB at the reference distance (L1).
+    form: llm
+  - name: reference_distance_m
+    type: number
+    required: true
+    label:
+      en_US: Reference distance (m)
+      zh_Hans: Reference distance (m)
+      pt_BR: Reference distance (m)
+      ja_JP: Reference distance (m)
+    human_description:
+      en_US: Distance from the train horn at which the reference SPL was taken, in metres. Must be greater than zero.
+      zh_Hans: Distance from the train horn at which the reference SPL was taken, in metres. Must be greater than zero.
+      pt_BR: Distance from the train horn at which the reference SPL was taken, in metres. Must be greater than zero.
+      ja_JP: Distance from the train horn at which the reference SPL was taken, in metres. Must be greater than zero.
+    llm_description: Reference distance r1 in metres. Must be greater than zero.
+    form: llm
+  - name: target_distance_m
+    type: number
+    required: true
+    label:
+      en_US: Target distance (m)
+      zh_Hans: Target distance (m)
+      pt_BR: Target distance (m)
+      ja_JP: Target distance (m)
+    human_description:
+      en_US: Distance from the train horn at which to predict the SPL, in metres. Must be greater than zero.
+      zh_Hans: Distance from the train horn at which to predict the SPL, in metres. Must be greater than zero.
+      pt_BR: Distance from the train horn at which to predict the SPL, in metres. Must be greater than zero.
+      ja_JP: Distance from the train horn at which to predict the SPL, in metres. Must be greater than zero.
+    llm_description: Target distance r2 in metres. Must be greater than zero.
+    form: llm
+  - name: attenuation_db_per_km
+    type: number
+    required: false
+    default: 0
+    label:
+      en_US: Attenuation coefficient (dB/km)
+      zh_Hans: Attenuation coefficient (dB/km)
+      pt_BR: Attenuation coefficient (dB/km)
+      ja_JP: Attenuation coefficient (dB/km)
+    human_description:
+      en_US: Optional user-supplied linear atmospheric or ground attenuation coefficient, in decibels per kilometre. Defaults to 0 (geometric spreading only). This tool does not look up coefficients from standards.
+      zh_Hans: Optional user-supplied linear atmospheric or ground attenuation coefficient, in decibels per kilometre. Defaults to 0 (geometric spreading only). This tool does not look up coefficients from standards.
+      pt_BR: Optional user-supplied linear atmospheric or ground attenuation coefficient, in decibels per kilometre. Defaults to 0 (geometric spreading only). This tool does not look up coefficients from standards.
+      ja_JP: Optional user-supplied linear atmospheric or ground attenuation coefficient, in decibels per kilometre. Defaults to 0 (geometric spreading only). This tool does not look up coefficients from standards.
+    llm_description: Optional linear absorption coefficient alpha in dB/km. Default 0. Applied as alpha*(r2-r1)/1000 with distances in metres.
+    form: llm
+extra:
+  python:
+    source: tools/train_horn_spl.py
